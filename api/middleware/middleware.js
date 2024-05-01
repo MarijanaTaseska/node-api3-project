@@ -3,7 +3,6 @@ const User = require('../users/users-model')
 
 
 function logger(req, res, next) {
-  // DO YOUR MAGIC
   const timestamp = new Date().toLocaleString()
   const method = req.method
   const url = req.originalUrl
@@ -28,7 +27,6 @@ res.status(404).json({message:'user not found'})
 }
 
 function validateUser(req, res, next) {
-  // DO YOUR MAGIC
   const { name }  =req.body
   if(!name || !name.trim()){
     res.status(400).json({message:'missing required name field'})
@@ -39,7 +37,6 @@ function validateUser(req, res, next) {
 }
 
 function validatePost(req, res, next) {
-  // DO YOUR MAGIC
   const { text }  =req.body
   if(!text || !text.trim()){
     res.status(400).json({message:'missing required text field'})
@@ -48,8 +45,6 @@ function validatePost(req, res, next) {
     next()
   }
 }
-
-// do not forget to expose these functions to other modules
 
 module.exports = {
   logger,
